@@ -38,6 +38,3 @@ public class Easy{
  */
 
 
-
-/* Second Largest elemenet in an array without sorting */
- 
