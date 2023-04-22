@@ -8,14 +8,16 @@ Given an integer n, find all distinct solutions to the n-queens puzzle.
 
 //Solution-1 -->
 
-/* 
+ /*
 import java.util.*;
 class N_Queens {
     public static List < List < String >> solveNQueens(int n) {
         char[][] board = new char[n][n];
-        for (int i = 0; i < n; i++)
-            for (int j = 0; j < n; j++)
+        for (int i = 0; i < n; i++){
+            for (int j = 0; j < n; j++){
                 board[i][j] = '.';
+            }
+        }    
         List < List < String >> res = new ArrayList < List < String >> ();
         dfs(0, board, res);
         return res;
@@ -25,24 +27,33 @@ class N_Queens {
         int duprow = row;
         int dupcol = col;
         while (row >= 0 && col >= 0) {
-            if (board[row][col] == 'Q') return false;
+            if (board[row][col] == 'Q'){ 
+                return false;
+            }
             row--;
             col--;
+            
         }
 
         row = duprow;
         col = dupcol;
         while (col >= 0) {
-            if (board[row][col] == 'Q') return false;
+            if (board[row][col] == 'Q') {
+                return false;
+            }
             col--;
+            
         }
 
         row = duprow;
         col = dupcol;
         while (col >= 0 && row < board.length) {
-            if (board[row][col] == 'Q') return false;
+            if (board[row][col] == 'Q') {
+                return false;
+            }
             col--;
             row++;
+            
         }
         return true;
     }
@@ -65,13 +76,15 @@ class N_Queens {
 
 
     public static List < String > construct(char[][] board) {
-        List < String > res = new LinkedList < String > ();
+        List < String > res = new ArrayList < String > ();
         for (int i = 0; i < board.length; i++) {
             String s = new String(board[i]);
             res.add(s);
         }
         return res;
     }
+
+
     public static void main(String args[]) {
         int N = 4;
         List < List < String >> queen = solveNQueens(N);
@@ -88,7 +101,8 @@ class N_Queens {
     }
 }
 
-*/
+
+ */
 
 
 //Solution-2 -->
