@@ -43,8 +43,6 @@ public class Easy{
 
 /* Second Largest and second smallest elemenet in an array.*/
 
-//Solution-1 -->
-
 /*
 import java.util.Scanner;
 class Easy{
