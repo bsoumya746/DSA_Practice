@@ -39,8 +39,6 @@ public class Easy{
 
  */
 
-
-
 /* Second Largest and second smallest elemenet in an array.*/
 
 /*
@@ -137,3 +135,100 @@ class Easy{
 }
 
  */
+
+/* 
+Remove duplicates from an array.
+----------------------------------
+Given an integer array sorted in non-decreasing order, 
+remove the duplicates in place such that each unique element appears only once. The 
+relative order of the elements should be kept the same.If there are k elements after removing the duplicates, 
+then the first k elements of the array should hold the final result. It does not matter what you leave beyond 
+the first k elements.
+Note: Return k after placing the final result in the first k slots of the array.
+ */
+
+/* Solution -01 --> 
+ 
+import java.util.*;
+
+class Easy{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter the size of your array:");
+        int size = sc.nextInt();
+
+        int arr[]=new int[size];
+
+        System.out.println("Enter the elements in your array:");
+        for(int i=0;i<size;i++){
+            arr[i]=sc.nextInt();
+        }
+        
+        int elem = rem_dup(arr);
+        System.out.println("The array after removing the duplicates is:");
+        for(int i=0;i<elem;i++){
+            System.out.print(arr[i]+" ");
+        }
+        System.out.println("");
+        sc.close();
+    }
+
+    public static int rem_dup(int arr[]){
+        HashSet < Integer > set = new HashSet < > ();
+        for (int i = 0; i < arr.length; i++) {
+            set.add(arr[i]);
+        }
+        int k = set.size();
+        int j = 0;
+        for (int x: set) {
+            arr[j++] = x;
+        }
+        return k;
+    }
+}
+
+*/
+
+/* Solution -02 -->
+
+import java.util.*;
+
+class Easy{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter the size of your array:");
+        int size = sc.nextInt();
+
+        int arr[]=new int[size];
+
+        System.out.println("Enter the elements in your array:");
+        for(int i=0;i<size;i++){
+            arr[i]=sc.nextInt();
+        }
+        
+        int elem = rem_dup(arr);
+        System.out.println("The array after removing the duplicates is:");
+        for(int i=0;i<elem;i++){
+            System.out.print(arr[i]+" ");
+        }
+        System.out.println("");
+        sc.close();
+    }
+
+    public static int rem_dup(int arr[]){
+        int i = 0;
+        for (int j = 1; j < arr.length; j++) {
+            if (arr[i] != arr[j]) {
+                i++;
+                arr[i] = arr[j];
+            }
+        }
+        return i + 1;
+    }
+}
+
+*/
+
+
