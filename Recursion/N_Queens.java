@@ -111,10 +111,12 @@ class N_Queens {
 import java.util.*;
 class N_Queens{
     public static List < List < String >> solveNQueens(int n) {
-        char[][] board = new char[n][n];
-        for (int i = 0; i < n; i++)
-            for (int j = 0; j < n; j++)
+        char board[][] = new char[n][n];
+        for (int i = 0; i < n; i++){
+            for (int j = 0; j < n; j++){
                 board[i][j] = '.';
+            }
+        }
         List < List < String >> res = new ArrayList < List < String >> ();
         int leftRow[] = new int[n];
         int upperDiagonal[] = new int[2 * n - 1];
@@ -147,7 +149,7 @@ class N_Queens{
     }
 
 
-    static List < String > construct(char[][] board) {
+    static List < String > construct(char board[][] ) {
         List < String > res = new LinkedList < String > ();
         for (int i = 0; i < board.length; i++) {
             String s = new String(board[i]);
