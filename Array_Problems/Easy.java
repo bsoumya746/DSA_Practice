@@ -1,5 +1,4 @@
 
-
 /* Largest Element in an Array. */
 
 /*
@@ -52,7 +51,7 @@ class Easy{
             System.out.print(-1);
 		    System.out.print(" ");
 		    System.out.print(-1);
-		    System.out.print("\n");
+		    System.out.print("\size");
         }
         int small = Integer.MAX_VALUE;
 	    int second_small = Integer.MAX_VALUE;
@@ -84,15 +83,15 @@ class Easy{
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Enter the number of elements in your array:");
-        int n = sc.nextInt();
+        int size = sc.nextInt();
 
-        int arr[] = new int[n];
+        int arr[] = new int[size];
 
         System.out.println("Enter the elements in your array:");
-        for(int i=0;i<n;i++){
+        for(int i=0;i<size;i++){
             arr[i]=sc.nextInt();
         }
-        getElements(arr, n);
+        getElements(arr, size);
         sc.close();
     }
 }
@@ -117,12 +116,12 @@ class Easy{
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Enter the number of elements in your array:");
-        int n=sc.nextInt();
+        int size=sc.nextInt();
 
-        int arr[] = new int[n];
+        int arr[] = new int[size];
 
         System.out.println("Enter the elements :");
-        for(int i=0;i<n;i++){
+        for(int i=0;i<size;i++){
             arr[i]=sc.nextInt();
         }
 
@@ -142,10 +141,10 @@ Remove duplicates from an array.
 ----------------------------------
 Given an integer array sorted in non-decreasing order, 
 remove the duplicates in place such that each unique element appears only once. The 
-relative order of the elements should be kept the same.If there are k elements after removing the duplicates, 
-then the first k elements of the array should hold the final result. It does not matter what you leave beyond 
-the first k elements.
-Note: Return k after placing the final result in the first k slots of the array.
+relative order of the elements should be kept the same.If there are rot elements after removing the duplicates, 
+then the first rot elements of the array should hold the final result. It does not matter what you leave beyond 
+the first rot elements.
+Note: Return rot after placing the final result in the first rot slots of the array.
  */
 
 /* Solution -01 --> 
@@ -180,12 +179,12 @@ class Easy{
         for (int i = 0; i < arr.length; i++) {
             set.add(arr[i]);
         }
-        int k = set.size();
+        int rot = set.size();
         int j = 0;
         for (int x: set) {
             arr[j++] = x;
         }
-        return k;
+        return rot;
     }
 }
 
@@ -244,6 +243,119 @@ first index and and ‘1’ which was present at
 first index will be shifted at last.
  */
 
+/* Brute Solution --> 
+
+import java.util.*;
+
+class Easy{
+
+
+    public static void shift(int arr[], int size){
+        int new_arr[] = new int[size];
+        for(int i=1;i<size;i++){
+            new_arr[i-1]=arr[i];
+        }
+        new_arr[size-1]=arr[0];
+        
+        System.out.println("The array when left rotated by one place is:");
+        for(int i=0;i<size;i++){
+            System.out.print(new_arr[i]+" ");
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.println("Enter the number of elements in your array:");
+        int size = sc.nextInt();
+
+
+        int arr[] = new int[size];
+
+        System.out.println("Enter the elements of your array:");
+        for(int i=0;i<size;i++){
+            arr[i]=sc.nextInt();
+        }
+
+        shift(arr,size);
+    }
+}
+ 
+ */
 
  
- 
+
+/*You are given an array of integers, your task 
+is to move all the zeros in the array to the end of the array and move non-negative integers
+to the front by maintaining their order. */
+
+/*Brute Solution --> 
+
+
+import java.util.*;
+
+class Easy{
+
+    public static void shift_zeroes(int arr[],int length){
+        int temp[] = new int[length];
+        int k=0;
+        for(int i=0;i<length;i++){
+            if(arr[i]!=0){
+                temp[k]=arr[i];
+                k++;
+            }
+        }
+
+        while(k<length){
+            temp[k]=0;
+            k++;
+        }
+
+        for(int i=0;i<length;i++){
+            System.out.print(temp[i]+" ");
+        }
+    }
+
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.println("Enter the number of elements in your array:");
+        int size=sc.nextInt();
+
+        int arr[] = new int[size];
+
+        System.out.println("Enter the elements in your array:");
+        for(int i=0;i<size;i++){
+            arr[i]=sc.nextInt();
+        }
+
+        shift_zeroes(arr,size);
+
+        sc.close();
+    }
+}
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
