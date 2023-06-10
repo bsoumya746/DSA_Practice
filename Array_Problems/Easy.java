@@ -337,6 +337,60 @@ class Easy{
 
 */
 
+/*Optimized Solution --> 
+
+import java.util.*;
+
+public class Easy {
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    
+    System.out.println("Enter the number of elements in your array:");
+    
+    int size=sc.nextInt();
+    int arr[] = new int[size];
+    
+    System.out.println("Enter the elements in your array:");
+    for(int i=0;i<size;i++){
+        arr[i]=sc.nextInt();
+    }
+    
+    
+    zerosToEnd(arr);
+
+  }
+  public static void zerosToEnd(int[] arr) {
+
+    //finding first zero occurrence
+    int k = 0;
+    while (k < arr.length) {
+      if (arr[k] == 0) {
+        break;
+      }else{
+        k++;
+      }
+    }
+
+    //finding zeros and immediate non-zero elements and swapping them
+    int i = k, j = k + 1;
+
+    while (i < arr.length && j < arr.length) {
+        if (arr[j] != 0) {
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+            i++;
+        }
+        j++;
+    }
+
+    for (i = 0; i < arr.length; i++) {
+      System.out.print(arr[i] + " ");
+    }
+  }
+}
+
+*/
 
 
 
