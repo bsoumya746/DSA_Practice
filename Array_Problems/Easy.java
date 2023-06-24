@@ -57,13 +57,12 @@ class Easy{
 	    int second_small = Integer.MAX_VALUE;
 	    int large = Integer.MIN_VALUE;
 	    int second_large = Integer.MIN_VALUE;
-        int i;
-        for (i = 0;i < size;i++)
+        for (int i = 0;i < size;i++)
         {
             small = Math.min(small,arr[i]);
             large = Math.max(large,arr[i]);
         }
-        for (i = 0;i < size;i++)
+        for (int i = 0;i < size;i++)
         {
             if (arr[i] < second_small && arr[i] != small)
             {
@@ -393,10 +392,66 @@ public class Easy {
 */
 
 
+/*
+Given two sorted arrays, arr1, and arr2 of size n and m. Find the union of two sorted arrays.
+The union of two arrays can be defined as the common and distinct elements in the two arrays.
+NOTE: Elements in the union should be in ascending order.
+ */
+
+/*Brute Solution --> */
+
+import java.util.*;
+
+class Easy{
 
 
+    public static ArrayList<Integer> Find_Union(int arr_1[],int size_1,int arr_2[],int size_2){
+        HashMap <Integer,Integer > freq = new HashMap<>();
+        ArrayList<Integer> Union=new ArrayList<>();
+        for (int i = 0; i < size_1; i++)
+            freq.put(arr_1[i],freq.getOrDefault(arr_1[i],0)+1);
+        for (int i = 0; i < size_2; i++)
+            freq.put(arr_2[i],freq.getOrDefault(arr_2[i],0)+1);
+        for (int it: freq.keySet())
+            Union.add(it);
+        return Union;
+    }
 
 
+    public static void main (String[] args){
+        
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter the size of array one:");
+        int size_1= sc.nextInt();
+
+        int arr_1[] = new int[size_1];
+
+        System.out.println("Enter the elements of your first array:");
+        for(int i=0; i<size_1;i++){
+            arr_1[i]=sc.nextInt();
+        }
+
+        System.out.println("Enter the size of array two:");
+        int size_2= sc.nextInt();
+
+        int arr_2[] = new int[size_2];
+
+        System.out.println("Enter the elements of your second array:");
+        for(int i=0; i<size_2;i++){
+            arr_2[i]=sc.nextInt();
+        }
+
+        ArrayList <Integer> Union = Find_Union(arr_1,size_1,arr_2,size_2);
+
+        System.out.println("Union of arr1 and arr2 is:");
+        for (int val: Union){
+            System.out.print(val+" ");
+        }
+        System.out.println("");
+    }
+
+}
 
 
 
