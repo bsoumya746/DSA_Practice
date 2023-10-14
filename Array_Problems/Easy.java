@@ -400,6 +400,7 @@ NOTE: Elements in the union should be in ascending order.
 
 /*Brute Solution --> */
 
+/*
 import java.util.*;
 
 class Easy{
@@ -453,13 +454,216 @@ class Easy{
 
 }
 
+ */
+
+/* Better Solution --> */
+
+/*
+import java.util.*;
+
+class Easy{
+
+
+    public static ArrayList<Integer> Find_Union(int arr_1[],int size_1,int arr_2[],int size_2){
+        HashSet <Integer> set = new HashSet<>();
+        ArrayList<Integer> Union=new ArrayList<>();
+        for (int i = 0; i < size_1; i++)
+            set.add(arr_1[i]);
+        for (int i = 0; i < size_2; i++)
+            set.add(arr_2[i]);
+        for (int it: set)
+            Union.add(it);
+        return Union;
+    }
+
+
+    public static void main (String[] args){
+        
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter the size of array one:");
+        int size_1= sc.nextInt();
+
+        int arr_1[] = new int[size_1];
+
+        System.out.println("Enter the elements of your first array:");
+        for(int i=0; i<size_1;i++){
+            arr_1[i]=sc.nextInt();
+        }
+
+        System.out.println("Enter the size of array two:");
+        int size_2= sc.nextInt();
+
+        int arr_2[] = new int[size_2];
+
+        System.out.println("Enter the elements of your second array:");
+        for(int i=0; i<size_2;i++){
+            arr_2[i]=sc.nextInt();
+        }
+
+        ArrayList <Integer> Union = Find_Union(arr_1,size_1,arr_2,size_2);
+
+        System.out.println("Union of arr1 and arr2 is:");
+        for (int val: Union){
+            System.out.print(val+" ");
+        }
+        System.out.println("");
+    }
+
+}
+
+ */
+
+/* Best Solution --> */
+
+
+/*
+Given an integer N and an array of size N-1 containing N-1 numbers between 1 to N. 
+Find the number(between 1 to N), that is not present in the given array.
+ */
+
+/*Brute Solution --> */
+
+/*
+import java.util.*;
+
+class Easy{
+
+    
+    public static int ck_miss(int arr[],int size){
+        for (int i=1; i<=size;i++){
+            int check=0; 
+            for(int j=0;j<size-1;j++){
+                if(arr[j]== i){
+                    check=1;
+                    break;
+                }
+            }
+            if (check == 0){
+                return i;
+           } 
+        }
+        return -1;
+    }
+    public static void main (String[] args){
+        
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter the size of array:");
+        int size= sc.nextInt();
+
+        int arr[] = new int[size];
+
+        System.out.println("Enter the elements of your array:");
+        
+        for(int i=0; i < (size-1);i++){
+            arr[i]=sc.nextInt();
+        }
+        
+        int miss_num = ck_miss(arr,size);
+        
+        if(miss_num!=-1){
+            System.out.println("The missing number is: "+ miss_num);
+        }
+        
+    }
+
+        
+}
+
+ */
+
+ /* Optimal Solution --> */
+ 
+
+ 
+
+/*
+Given an array that contains only 1 and 0, return the count of maximum consecutive ones in the array.
+*/
+
+/*
+class Easy{
+
+	public static int find_max_con_ones(int arr[]){
+		int cnt =0;
+		int max_cnt=0;
+		for(int i =0; i<arr.length;i++){
+			if(arr[i]==1){
+				cnt++;
+			}else{
+				cnt = 0;
+			}
+
+			max_cnt=Math.max(cnt,max_cnt);
+		}
+
+		return max_cnt;
+	}
 
 
 
+	public static void main(String[] args){
+		int arr[] = {1,1,0,1,1,1};
+		int ans = find_max_con_ones(arr);
+		System.out.println("The maximum number of consecutive ones in the given array is:"+ans);
+	}
+
+}
+
+*/
 
 
+/*
+ 2-Sum Problem
+ --------------
+ Check if a pair with given sum exists in Array.
+*/
 
 
+/* Brute Force Solution */
+
+/*
+import java.util.Scanner;
+class Easy{
+
+    public static String checkExi(int arr[], int size, int target){
+        for(int i=0;i<size;i++){
+            for(int j=i+1;j<size;j++){
+                if(arr[i]+arr[j]==target){
+                    return "YES";
+                }
+            }
+        }
+        return "NO";
+    }
+
+
+    public static void main(String args[]){
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter the number of elements in your array:");
+        int size = sc.nextInt();
+
+        System.out.println("Enter the value of target sum:");
+        int target = sc.nextInt();
+
+        int arr[] = new int[size];
+
+        System.out.println("Enter the elements in your array:");
+        for(int i=0;i<size;i++){
+            arr[i]=sc.nextInt();
+        }
+        String ans = checkExi(arr,size,target);
+        System.out.println(ans);
+    }
+}
+
+ */
+
+ /*Better Solution */
+
+ 
 
 
 
