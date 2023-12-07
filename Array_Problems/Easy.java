@@ -663,11 +663,101 @@ class Easy{
 
  /*Better Solution */
 
- 
+ /*
+import java.util.*;
+class Easy{
+    public static int[] checkExi(int arr[] , int size, int target){
+        int ans[] = new int[2];
+        ans[0]=ans[1]=-1;
+
+        HashMap <Integer,Integer> map = new HashMap<>();
+        for (int i = 0; i<size;i++){
+            int num=arr[i];
+            int extra=target-num;
+            if(map.containsKey(extra)){
+                ans[0]=map.get(extra);
+                ans[1]=i;
+                return ans;
+            }
+            map.put(arr[i],i);
+        }
+        return ans;
+    }
+
+    public static void main(String args[]){
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter the number of elements in your array:");
+        int size = sc.nextInt();
+
+        System.out.println("Enter the value of target sum:");
+        int target = sc.nextInt();
+
+        int arr[] = new int[size];
+
+        System.out.println("Enter the elements in your array:");
+        for(int i=0;i<size;i++){
+            arr[i]=sc.nextInt();
+        }
+        int ans[] = checkExi(arr,size,target);
+        System.out.println("["+ans[0]+","+ans[1]+"]");
+    }
+}
+ */
+
+/*Best Solution */ 
+
+/*
+import java.util.Arrays;
+import java.util.Scanner;
+class Easy{
+
+    public static String checkExi(int arr[], int size, int target){
+        Arrays.sort(arr);
+        int left = 0;
+        int right = size-1;
+
+        while(left<right){
+            int sum = arr[left]+arr[right];
+            if(sum == target){
+                return "YES";
+            }else if(sum < target){
+                left++;
+            }else if(sum > target){
+                right--;
+            }
+        } 
+        return "NO";
+    }
+
+
+    public static void main(String args[]){
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter the number of elements in your array:");
+        int size = sc.nextInt();
+
+        System.out.println("Enter the value of target sum:");
+        int target = sc.nextInt();
+
+        int arr[] = new int[size];
+
+        System.out.println("Enter the elements in your array:");
+        for(int i=0;i<size;i++){
+            arr[i]=sc.nextInt();
+        }
+        String ans = checkExi(arr,size,target);
+        System.out.println(ans);
+    }
+}
+
+ */
 
 
 
-
+/*
+Kadane's Algorithm
+ */
 
 
 
