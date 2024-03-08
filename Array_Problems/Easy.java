@@ -748,10 +748,11 @@ class Easy{
         }
         String ans = checkExi(arr,size,target);
         System.out.println(ans);
+        sc.close();
     }
 }
 
- */
+  */
 
 
 

@@ -20,7 +20,7 @@ class Node{
 
 public class Length_Of_LL {
 
-    public static int Length_Of_LL(Node head){
+    public static int LL_Length(Node head){
         int counter=0;
         Node temp = head;
         while(temp != null){
@@ -36,7 +36,7 @@ public class Length_Of_LL {
         head.next = new Node(arr[1]);
         head.next.next=new Node(arr[2]);
         
-        int length = Length_Of_LL(head);
+        int length =LL_Length(head);
         System.out.println("The length of the given linked list is:" +length);
     }
 }
